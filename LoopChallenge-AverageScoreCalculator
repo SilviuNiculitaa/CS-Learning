@@ -21,28 +21,32 @@ namespace Challenge___Loops_1
                 userResponse = Console.ReadLine();
                 userResponseToInt = int.TryParse(userResponse, out score);
 
+                if (score == -1 && scoreCounter == 0)
+                {
+                    Console.WriteLine("Restart the program then please enter a valid number that is between 1 and 20");
+                    break;
+                }
+                else if (score == -1)
+                {
+                    averageScore = totalScore / scoreCounter;
+                    Console.WriteLine("The average score is {0}", averageScore);
+                    break;
+                }
 
-                if (userResponseToInt == true && score != -1 && score >= 1 && score <= 20)
+                if (userResponseToInt == true && score >= 1 && score <= 20)
                 {
                     totalScore += score;
                     scoreCounter++;
                     continue;
                 }
-
-
-                if (userResponseToInt == false)
+                else
                 {
                     Console.WriteLine("Restart the program then please enter a valid number that is between 1 and 20");
                     break;
                 }
 
 
-                if (score == -1)
-                {
-                    averageScore = totalScore / scoreCounter;
-                    Console.WriteLine("The average score is {0}", averageScore);
-                    break;
-                }
+
             }
         }
     }

@@ -1,2 +1,36 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+using System;
+
+namespace Challenge___Enhanced_If_Statements
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //Adding Variables
+            int intTemperature;
+            string stringTemperature;
+            bool isItInt = false;
+            string stateOfWeather;
+
+            //Getting User Input
+            Console.WriteLine("Please enter the temperature in Celsius: ");
+            stringTemperature = Console.ReadLine();
+
+            //Trying to convert User Input into an Integer
+            isItInt = int.TryParse(stringTemperature, out intTemperature);
+
+            if (isItInt)
+            {
+                stateOfWeather = intTemperature <= 15 ? "it is too cold here" : intTemperature <= 28 ? "it is ok" : "it is too hot here";
+                Console.WriteLine(stateOfWeather);
+            }
+            else
+            {
+                Console.WriteLine("You did not enter a valid number, please restart the program and try again.");
+            }
+
+        }
+    }
+}

@@ -1,0 +1,49 @@
+using System;
+
+namespace Challenge___Loops_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int averageScore;
+            int score;
+            int totalScore = 0;
+            int scoreCounter = 0;
+
+            string userResponse;
+            bool userResponseToInt;
+
+            Console.WriteLine("Please enter the score of your students (from 1 to 20)\nTo end the program enter -1\n");
+
+            while (true)
+            {
+                userResponse = Console.ReadLine();
+                userResponseToInt = int.TryParse(userResponse, out score);
+
+
+                if (userResponseToInt == true && score != -1 && score >= 1 && score <= 20)
+                {
+                    totalScore += score;
+                    scoreCounter++;
+                    continue;
+                }
+
+
+                if (userResponseToInt == false)
+                {
+                    Console.WriteLine("Restart the program then please enter a valid number that is between 1 and 20");
+                    break;
+                }
+
+
+                if (score == -1)
+                {
+                    averageScore = totalScore / scoreCounter;
+                    Console.WriteLine("The average score is {0}", averageScore);
+                    break;
+                }
+            }
+        }
+    }
+}

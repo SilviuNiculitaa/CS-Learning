@@ -6,11 +6,14 @@ namespace Challenge___Loops_1
     {
         static void Main(string[] args)
         {
+
+            //Added Score Variables
             int averageScore;
             int score;
             int totalScore = 0;
             int scoreCounter = 0;
-
+            
+            //Added User Input Variables and boolean to verify later if it can be Parsed
             string userResponse;
             bool userResponseToInt;
 
@@ -21,12 +24,12 @@ namespace Challenge___Loops_1
                 userResponse = Console.ReadLine();
                 userResponseToInt = int.TryParse(userResponse, out score);
 
-                if (score == -1 && scoreCounter == 0)
+                if (score == -1 && scoreCounter == 0) // if added so the code wouldn't break if user inputs -1 immediately
                 {
                     Console.WriteLine("Restart the program then please enter a valid number that is between 1 and 20");
                     break;
                 }
-                else if (score == -1)
+                else if (score == -1) // else if added so the code wouldn't go through all loop if user decided to end the program
                 {
                     averageScore = totalScore / scoreCounter;
                     Console.WriteLine("The average score is {0}", averageScore);
@@ -44,9 +47,6 @@ namespace Challenge___Loops_1
                     Console.WriteLine("Restart the program then please enter a valid number that is between 1 and 20");
                     break;
                 }
-
-
-
             }
         }
     }
